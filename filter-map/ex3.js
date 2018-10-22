@@ -51,6 +51,23 @@ Sortie attendue:
 */
 
 function getStudentsPerCurriculum(campuses, curriculumName) {
+  return campuses.filter(campus => isCursus(campus['curriculums'], curriculumName)).map(campus => getStudents(campus, curriculumName));
+}
+
+function isCursus(campus, curriculumName) {
+  var campusContainCursus = [];  
+  campus.forEach(function(cursus, index) { campusContainCursus[index] = cursus['name'].includes(curriculumName);});
+  return campusContainCursus.includes(true) ? true : false;
+}
+
+function getStudents(campus, curriculumName) {
+  var cityStudent = new Object();
+  campus['curriculums'].forEach(function(cursus, index) {     
+    if (cursus['name'].includes(curriculumName)) {
+      cityStudent[campus['city']] = cursus['numStudents'];    
+    }  
+  }); 
+  return cityStudent;   
 }
 
 module.exports = getStudentsPerCurriculum;

@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/Aurelie-feyzin/array-map-filter.svg?branch=master)](https://travis-ci.org/Aurelie-feyzin/array-map-filter)
 # Exercices sur map et filter
 
 ## Installation
